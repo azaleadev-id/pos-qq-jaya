@@ -1,0 +1,10 @@
+Options -Indexes
+RewriteEngine On
+
+RewriteRule ^(?:config|core)/ - [F,L,NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+SetEnvIf Authorization "(.+)" HTTP_AUTHORIZATION=$1
+
